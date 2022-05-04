@@ -1,0 +1,18 @@
+<%= content_tag :div, class: 'container mx-auto px-4 bg-red' do %>
+  <%= content_tag :div do %>
+    <%= turbo_frame_tag 'total_drones' do %>
+      <%= content_tag :div, @total_drones_killed, class: 'text-center' %>
+    <% end %>
+  <% end %>
+
+  <h1 class="text-red">Completed</h1>
+  <%= turbo_frame_tag 'encounters' do %>
+    <% @drone_encounters.each do |de| %>
+      <%= render partial: 'encounter', locals: { encounter: de } %>
+    <% end %>
+  <% end %>
+
+  <%= turbo_frame_tag 'encounter_form' do %>
+    <%= link_to "Record Drones", new_drone_encounter_path %>
+  <% end %>
+<% end %>

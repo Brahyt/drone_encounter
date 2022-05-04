@@ -1,0 +1,11 @@
+<%= turbo_stream.prepend 'encounters' do %>
+  <%= render partial: 'encounter', locals: { encounter: @drone_encounter } %>
+<% end %>
+
+<%= turbo_stream.update 'encounter_form' do %>
+  <%= link_to "Record Drones", new_drone_encounter_path %>
+<% end %>
+
+<%= turbo_stream.update 'total_drones' do %>
+  <%= content_tag :div, @total_drones_killed += @drone_encounter.drone_kills, class: 'basis-full' %>
+<% end %>
