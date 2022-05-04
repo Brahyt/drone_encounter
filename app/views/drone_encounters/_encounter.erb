@@ -1,3 +1,9 @@
-<div>
-  <%= encounter.drone_kills %>
-</div>
+<%= content_tag :div, class: 'encounter-box' do %>
+  <%= content_tag :div, "Drones Killed: #{encounter.drone_kills}" %>
+  <%= content_tag :div, "#{encounter.players.count} Players" %>
+  <%= content_tag :div, class: 'players-box' do %>
+    <% encounter.players.each do |player| %>
+      <%= "#{player.hero_aspect} #{player.hero}" %>
+    <% end %>
+  <% end %>
+<% end %>

@@ -1,14 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
+
 html {
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
+  height: 100%;
+  width: 100%;
 }
 
 body {
   margin: 0;
 }
 
-main {
-  display: block;
+.main {
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.box {
+  flex-basis: 100%;
+}
+
+h1,
+h2,
+h3,
+a,
+p,
+div{
+  font-family: 'Koulen';
+}
+
+.fixed_bottom_bar {
+  position: fixed;
+  z-index: 100;
+  bottom: 0;
+  left: 0;
+  width: 100%;
 }
 
 h1 {
@@ -29,6 +56,8 @@ pre {
 
 a {
   background-color: transparent;
+  text-decoration: none;
+  color: red;
 }
 
 abbr[title] {
@@ -79,8 +108,8 @@ optgroup,
 select,
 textarea {
   font-family: inherit; /* 1 */
-  font-size: 100%; /* 1 */
-  line-height: 1.15; /* 1 */
+  font-size: 50%; /* 1 */
+  line-height: 1; /* 1 */
   margin: 0; /* 2 */
 }
 
