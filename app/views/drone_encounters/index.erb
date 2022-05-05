@@ -1,22 +1,20 @@
 <%= content_tag :div, class: 'main' do %>
   <%= content_tag :div, class: 'box' do %>
     <%= turbo_frame_tag 'total_drones' do %>
-      <%= content_tag :div do %>
-        <%= content_tag :h1, "Total Kills: #{@total_drones_killed}", class: 'text-center' %>
-      <% end %>
+      <%= render partial: 'total_kills', locals: { total_kills: @total_drones_killed} %>
     <% end %>
   <% end %>
 
   <%= content_tag :div, content_tag(:h2, 'COMPLETED GAMES'), class: 'box' %>
 
-    <%= turbo_frame_tag 'encounters', class: 'encounter-container' do %>
-      <% @drone_encounters.each do |de| %>
-        <%= render partial: 'encounter', locals: { encounter: de } %>
-      <% end %>
+  <%= turbo_frame_tag 'encounters', class: 'encounter-container' do %>
+    <% @drone_encounters.each do |de| %>
+      <%= render partial: 'encounter', locals: { encounter: de } %>
     <% end %>
+  <% end %>
 
-  <%= content_tag :div, class: 'fixed_bottom_bar box' do %>
-    <%= turbo_frame_tag 'encounter_form' do %>
+  <%= content_tag :div, class: 'fixed-bottom-bar box', data: {controller: 'dronecounter'} do %>
+    <%= turbo_frame_tag 'drone_counter' do %>
       <%= link_to "Record Drones Kills", new_drone_encounter_path %>
     <% end %>
   <% end %>

@@ -4,5 +4,8 @@
 
 import { application } from "./application"
 
-import HelloController from "./hello_controller"
+import DronecounterController from "./dronecounter_controller.js"
+application.register("dronecounter", DronecounterController)
+
+import HelloController from "./hello_controller.js"
 application.register("hello", HelloController)

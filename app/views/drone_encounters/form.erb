@@ -1,0 +1,31 @@
+<%= turbo_frame_tag 'drone_counter' do %>
+  <%= form_with model: @new_drone_encounter, local: true do |form| %>
+    <%= content_tag :div do %>
+      <%= form.label :drone_kills, 'drones_killed' %>
+      <%= form.text_field :drone_kills, 'data-dronecounter-target': 'dronekills' %>
+    <% end %>
+    <%= content_tag :div do %>
+      <%= form.label :win, 'WIN!' %>
+      <%= form.check_box :win %>
+    <% end %>
+
+    <%= form.fields_for :players do |ff| %>
+      <%= content_tag :div do %>
+        <%= ff.label :player_name, 'Player Name' %>
+        <%= ff.text_field :player_name %>
+      <% end %>
+
+      <%= content_tag :div do %>
+        <%= ff.label :hero, :Hero %>
+        <%= ff.text_field :hero %>
+      <% end %>
+
+      <%= content_tag :div do %>
+        <%= ff.label :hero_aspect, :Aspect %>
+        <%= ff.text_field :hero_aspect %>
+      <% end %>
+
+    <% end %>
+    <%= form.submit :Submit, class: 'button' %>
+  <% end %>
+<% end %>

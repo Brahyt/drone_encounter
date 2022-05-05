@@ -2,7 +2,7 @@
 
 # controller for displaying drone encounters
 class DroneEncountersController < ApplicationController
-  before_action :set_new_encounter, only: %i[index new]
+  before_action :set_new_encounter, only: %i[index new form]
   before_action :set_drone_encounters
 
   def index; end
@@ -15,12 +15,14 @@ class DroneEncountersController < ApplicationController
     if @drone_encounter.save
       turbo_stream.prepend 'encounters', :encounter
     else
-      render :new
+      render :form
     end
   end
 
+  def form; end
+
   def set_drone_encounters
-    @drone_encounters = DroneEncounter.all.order('id DESC')
+    @drone_encounters = DroneEncounter.all.order('drone_kills DESC')
 
     @total_drones_killed = @drone_encounters.map(&:drone_kills).compact&.sum || 0
   end

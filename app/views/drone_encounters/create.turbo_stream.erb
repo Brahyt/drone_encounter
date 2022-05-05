@@ -2,10 +2,10 @@
   <%= render partial: 'encounter', locals: { encounter: @drone_encounter } %>
 <% end %>
 
-<%= turbo_stream.update 'encounter_form' do %>
+<%= turbo_stream.update 'drone_counter' do %>
   <%= link_to "Record Drones", new_drone_encounter_path %>
 <% end %>
 
 <%= turbo_stream.update 'total_drones' do %>
-  <%= content_tag :div, @total_drones_killed += @drone_encounter.drone_kills, class: 'basis-full' %>
+  <%= render partial: 'total_kills', locals: { total_kills: @total_drones_killed += @drone_encounter.drone_kills} %>
 <% end %>
