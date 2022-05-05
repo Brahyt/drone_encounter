@@ -9,11 +9,11 @@
 
   <%= content_tag :div, content_tag(:h2, 'COMPLETED GAMES'), class: 'box' %>
 
-  <%= turbo_frame_tag 'encounters' do %>
-    <% @drone_encounters.each do |de| %>
-      <%= render partial: 'encounter', locals: { encounter: de } %>
+    <%= turbo_frame_tag 'encounters', class: 'encounter-container' do %>
+      <% @drone_encounters.each do |de| %>
+        <%= render partial: 'encounter', locals: { encounter: de } %>
+      <% end %>
     <% end %>
-  <% end %>
 
   <%= content_tag :div, class: 'fixed_bottom_bar box' do %>
     <%= turbo_frame_tag 'encounter_form' do %>

@@ -21,6 +21,21 @@ body {
   flex-basis: 100%;
 }
 
+.encounter-container {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.encounter-box {
+  display: flex;
+  flex-direction: column;
+  margin: .5rem;
+  padding: .5rem;
+}
+
 h1,
 h2,
 h3,
@@ -36,6 +51,14 @@ div{
   bottom: 0;
   left: 0;
   width: 100%;
+}
+
+.win {
+  background-color: #45a1d6;
+}
+
+.lose {
+  background-color: #d64545;
 }
 
 h1 {
