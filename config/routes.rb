@@ -8,4 +8,6 @@ Rails.application.routes.draw do
       get :form, to: 'drone_encounters#form'
     end
   end
+
+  resources :teams, only: %i[new create]
 end

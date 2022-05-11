@@ -4,7 +4,6 @@
       <%= render partial: 'total_kills', locals: { total_kills: @total_drones_killed} %>
     <% end %>
   <% end %>
-
   <%= content_tag :div, content_tag(:h2, 'COMPLETED GAMES'), class: 'box' %>
 
   <%= turbo_frame_tag 'encounters', class: 'encounter-container' do %>
@@ -16,6 +15,8 @@
   <%= content_tag :div, class: 'fixed-bottom-bar box', data: {controller: 'dronecounter'} do %>
     <%= turbo_frame_tag 'drone_counter' do %>
       <%= link_to "Record Drones Kills", new_drone_encounter_path %>
+      <%= link_to "Create Team", new_team_path unless session[:team_identifier] %>
+      <%= link_to "Add Players", new_player_path if session[:team_identifier] %>
     <% end %>
   <% end %>
 <% end %>

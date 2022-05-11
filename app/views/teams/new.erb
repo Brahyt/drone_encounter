@@ -1,0 +1,12 @@
+<%= turbo_frame_tag 'drone_counter' do %>
+  <%= form_with model: @team do |form| %>
+    <%= content_tag :div do %>
+      <%= form.label :name, 'Team Name' %>
+      <%= form.text_field :name %>
+    <% end %>
+
+    <%= content_tag :div do %>
+      <%= form.submit %>
+    <% end %>
+  <% end %>
+<% end %>
