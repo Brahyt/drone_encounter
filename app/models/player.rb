@@ -3,5 +3,5 @@
 
 # Represents a player
 class Player < ApplicationRecord
-  belongs_to :drone_encounter
+  belongs_to :team
 end

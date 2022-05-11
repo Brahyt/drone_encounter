@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   end
 
   resources :teams, only: %i[new create]
+  resources :players, only: %i[new create]
 end
