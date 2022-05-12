@@ -1,19 +1,17 @@
 <%= turbo_frame_tag 'drone_counter' do %>
-  <%= form_with url: new_player_path do |form| %>
+  <%= form_with url: players_path, model: @team, method: :new do |form| %>
     <%= form.fields_for :players do |player_form| %>
-      <% @team.players.each do |player| %>
-        <%= content_tag :div do %>
-          <%= player_form.label :hero, 'Hero' %>
-          <%= player_form.text_field :hero %>
-        <% end %>
-        <%= content_tag :div do %>
-          <%= player_form.label :aspect, 'aspect' %>
-          <%= player_form.text_field :aspect %>
-        <% end %>
+      <%= content_tag :div do %>
+        <%= player_form.label :hero_id, 'Hero' %>
+        <%= player_form.text_field :hero_id %>
       <% end %>
+      <%= content_tag :div do %>
+        <%= player_form.label :aspect_id, 'aspect' %>
+        <%= player_form.text_field :aspect_id %>
+      <% end %>
+    <% end %>
       <%= content_tag :div do %>
         <%= form.submit %>
       <% end %>
-    <% end %>
   <% end %>
 <% end %>

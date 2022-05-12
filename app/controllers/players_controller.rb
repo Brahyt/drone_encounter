@@ -12,5 +12,10 @@ class PlayersController < ApplicationController
   end
 
   def create
+    debugger
+  end
+
+  def update
+    debugger
   end
 end
