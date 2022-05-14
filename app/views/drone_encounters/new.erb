@@ -1,11 +1,26 @@
 <%= turbo_frame_tag 'drone_counter' do %>
   <%= content_tag :div, class: 'box' do %>
-    <%= content_tag :h2, "Current Kills", class: 'text-center m-0' %>
+    <%= content_tag :div, class: 'counter-container m-0' do %>
+      <%= content_tag :h2, "Round Number", class: 'text-center m-0' %>
+      <%= content_tag :button, '▼', class: 'round-count-down m-0', data: {action: 'click->dronecounter#down_round'} %>
+      <%= content_tag :h1, @round_count, class: 'kill-counter m-0', 'data-dronecounter-target': 'roundCount' %>
+      <%= content_tag :button, '▲', class: 'round-count-up m-0', data: {action: 'click->dronecounter#up_round'} %>
+    <% end %>
+
+    <%= content_tag :div, class: 'counter-container m-0' do %>
+      <%= content_tag :h2, "Current Kills", class: 'text-center m-0' %>
+      <%= content_tag :button, '▼', class: 'count-down m-0', data: {action: 'click->dronecounter#down_drone'} %>
+      <%= content_tag :h1, @drone_count, class: 'kill-counter m-0', 'data-dronecounter-target': 'droneCount' %>
+      <%= content_tag :button, '▲', class: 'count-up m-0', data: {action: 'click->dronecounter#up_drone'} %>
+    <% end %>
+
+    <%= form_with model: @drone_encounter do |encounter_form| %>
+      <%= encounter_form.hidden_field :drone_kills, 'data-dronecounter-target': 'droneCountField' %>
+      <%= encounter_form.hidden_field :round_number, 'data-dronecounter-target': 'roundCountField' %>
+
+      <%= content_tag :div, class: 'counter-container m-0' do %>
+        <%= encounter_form.submit 'SUBMIT' %>
+      <% end %>
+    <% end %>
   <% end %>
-  <%= content_tag :div, class: 'counter-container m-0' do %>
-    <%= content_tag :button, '▼', class: 'count-down m-0', data: {action: 'click->dronecounter#down'} %>
-    <%= content_tag :h1, 0, class: 'kill-counter m-0', 'data-dronecounter-target': 'count' %>
-    <%= content_tag :button, '▲', class: 'count-up m-0', data: {action: 'click->dronecounter#up'} %>
-  <% end %>
-  <%= link_to "Record Details", form_drone_encounters_path, data: {action: 'click->dronecounter#next'} %>
 <% end %>

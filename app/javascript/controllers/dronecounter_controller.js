@@ -1,26 +1,35 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ['count', 'dronekills']
+  static targets = ['roundCount', 'droneCount', 'dronekills', 'round', 'roundCountField', 'droneCountField']
+
   static values = { count: Number }
 
-  up() {
-    var count = parseInt(this.countTarget.textContent) + 1
+  up_round() {
+    var count = parseInt(this.roundCountTarget.textContent) + 1
 
-    this.countTarget.textContent = count
+    this.roundCountTarget.textContent = count
+    this.roundCountFieldTarget.value = count
   }
 
-  down(){
-    var count = parseInt(this.countTarget.textContent) - 1
+  down_round(){
+    var count = parseInt(this.roundCountTarget.textContent) - 1
 
-    this.countTarget.textContent = count
+    this.roundCountTarget.textContent = count
+    this.roundCountFieldTarget.value = count
   }
 
-  next(){
-    this.countValue = parseInt(this.countTarget.textContent)
+  up_drone(){
+    var count = parseInt(this.droneCountTarget.textContent) + 1
+
+    this.droneCountTarget.textContent = count
+    this.droneCountFieldTarget.value = count
   }
 
-  dronekillsTargetConnected(element) {
-    element.value = this.countValue
+  down_drone(){
+    var count = parseInt(this.droneCountTarget.textContent) - 1
+
+    this.droneCountTarget.textContent = count
+    this.droneCountFieldTarget.value = count
   }
 }

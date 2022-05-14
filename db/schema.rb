@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_12_150209) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_14_053114) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -25,12 +25,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_12_150209) do
   end
 
   create_table "drone_encounters", force: :cascade do |t|
-    t.integer "drone_kills"
-    t.integer "round_number"
+    t.integer "drone_kills", default: 0
+    t.integer "round_number", default: 0
     t.bigint "team_id"
     t.enum "current_status", default: "in_progress", null: false, enum_type: "game_status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "identifier"
     t.index ["team_id"], name: "index_drone_encounters_on_team_id"
   end
 
