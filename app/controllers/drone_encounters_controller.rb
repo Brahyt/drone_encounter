@@ -22,13 +22,23 @@ class DroneEncountersController < ApplicationController
   end
 
   def create
-    @drone_encounter = DroneEncounter.new(drone_encounter_params
-      .merge!({ team_id: @team.id, identifier: SecureRandom.hex }))
+    @drone_encounter = DroneEncounter.find_by(identifier: session[:encounter_identifier])
 
-    if @drone_encounter.save
-      session[:encounter_identifier] = @drone_encounter.identifier
+    if @drone_encounter
+      @drone_encounter.update(drone_encounter_params)
 
       render :new
+    else
+      @drone_encounter = DroneEncounter.new(drone_encounter_params
+        .merge!({ team_id: @team.id, identifier: SecureRandom.hex }))
+
+
+      if @drone_encounter.save
+
+        session[:encounter_identifier] = @drone_encounter.identifier
+
+        render :new
+      end
     end
   end
 

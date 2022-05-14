@@ -7,5 +7,8 @@ import { application } from "./application"
 import DronecounterController from "./dronecounter_controller.js"
 application.register("dronecounter", DronecounterController)
 
+import DronetallyController from "./dronetally_controller.js"
+application.register("dronetally", DronetallyController)
+
 import HelloController from "./hello_controller.js"
 application.register("hello", HelloController)
