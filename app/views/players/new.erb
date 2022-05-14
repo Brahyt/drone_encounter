@@ -3,11 +3,11 @@
     <%= form.fields_for :players do |player_form| %>
       <%= content_tag :div do %>
         <%= player_form.label :hero_id, 'Hero' %>
-        <%= player_form.text_field :hero_id %>
+        <%= player_form.select :hero_id, @heroes %>
       <% end %>
       <%= content_tag :div do %>
         <%= player_form.label :aspect_id, 'aspect' %>
-        <%= player_form.text_field :aspect_id %>
+        <%= player_form.select :aspect_id, @aspects %>
       <% end %>
     <% end %>
       <%= content_tag :div do %>
