@@ -14,9 +14,7 @@
 
   <%= content_tag :div, class: 'fixed-bottom-bar box', data: {controller: 'dronecounter'} do %>
     <%= turbo_frame_tag 'drone_counter' do %>
-      <%= link_to "Record Drones Kills", new_drone_encounter_path %>
-      <%= link_to "Create Team", new_team_path unless session[:team_identifier] %>
-      <%= link_to "Add Players", new_player_path if session[:team_identifier] %>
+      <%= render partial: 'shared/nav' %>
     <% end %>
   <% end %>
 <% end %>

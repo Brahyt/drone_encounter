@@ -1,0 +1,4 @@
+<%= link_to "Record Drones Kills", new_drone_encounter_path if session[:team_identifier] && @team&.players.present? %>
+<%= link_to "Create Team", new_team_path unless session[:team_identifier] %>
+<%= link_to "Add Players", new_player_path if (session[:team_identifier] && @team&.players.blank?) %>
+<%= link_to "Reset Team", reset_drone_encounters_path if session[:team_identifier] %>

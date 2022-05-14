@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :drone_encounters do
     collection do
       get :form, to: 'drone_encounters#form'
+      get :reset, to: 'drone_encounters#reset'
     end
   end
 
