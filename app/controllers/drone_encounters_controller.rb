@@ -63,8 +63,6 @@ class DroneEncountersController < ApplicationController
     params.require(:drone_encounter).permit(:drone_kills, :round_number)
   end
 
-  def set_drone_encounter; end
-
   def set_drone_encounters
     @drone_encounters = DroneEncounter.all.order('drone_kills DESC')
 
