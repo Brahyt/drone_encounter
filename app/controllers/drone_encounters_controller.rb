@@ -20,7 +20,7 @@ class DroneEncountersController < ApplicationController
 
     @drone_encounter.update(drone_encounter_params)
 
-    render :new
+    turbo_stream.update 'drone_counter'
   end
 
   def create
@@ -33,7 +33,7 @@ class DroneEncountersController < ApplicationController
 
       @drone_encounter.save
 
-      render :new
+      turbo_stream.update 'drone_counter'
     else
       @drone_encounter = DroneEncounter.new(drone_encounter_params
         .merge!({ team_id: @team.id, identifier: SecureRandom.hex, round_number: 1 }))
@@ -42,7 +42,7 @@ class DroneEncountersController < ApplicationController
 
         session[:encounter_identifier] = @drone_encounter.identifier
 
-        render :new
+        turbo_stream.update 'drone_counter'
       end
     end
   end
