@@ -5,11 +5,13 @@
   <% end %>
 <% end %>
 
-<%= content_tag :div, content_tag(:h2, 'COMPLETED GAMES'), class: 'box' %>
+<%= content_tag :div, content_tag(:h2, 'COMPLETED GAMES'), {style: 'text-align:center;'} %>
 
 <%= turbo_frame_tag 'encounters', class: 'encounter-container' do %>
 
-  <% drone_encounters.each do |de| %>
-    <%= render partial: 'drone_encounters/encounter', locals: { encounter: de } %>
+  <%= content_tag :div, class: 'encounter-list' do %>
+    <% drone_encounters.each do |de| %>
+      <%= render partial: 'drone_encounters/encounter', locals: { encounter: de } %>
+    <% end %>
   <% end %>
 <% end %>
