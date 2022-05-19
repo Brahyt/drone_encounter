@@ -36,8 +36,7 @@ class DroneEncountersController < ApplicationController
       render :new
     else
       @drone_encounter = DroneEncounter.new(drone_encounter_params
-        .merge!({ team_id: @team.id, identifier: SecureRandom.hex }))
-
+        .merge!({ team_id: @team.id, identifier: SecureRandom.hex, round_number: 1 }))
 
       if @drone_encounter.save
 

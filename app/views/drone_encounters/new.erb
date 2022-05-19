@@ -1,4 +1,4 @@
-<%= turbo_frame_tag 'drone_counter' do %>
+<turbo-frame id='drone_counter' >
   <%= content_tag :div, class: 'box' do %>
     <%= content_tag :div, class: 'counter-container m-0' do %>
       <%= content_tag :h2, "Current Kills", class: 'text-center m-0' %>
@@ -17,4 +17,4 @@
       <% end %>
     <% end %>
   <% end %>
-<% end %>
+</turbo-frame>
