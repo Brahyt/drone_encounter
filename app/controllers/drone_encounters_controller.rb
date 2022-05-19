@@ -16,6 +16,8 @@ class DroneEncountersController < ApplicationController
   def update
     @drone_encounter = DroneEncounter.find_by(identifier: session[:encounter_identifier])
 
+    @drone_encounter.round_number += 1
+
     @drone_encounter.update(drone_encounter_params)
 
     render :new
@@ -28,6 +30,8 @@ class DroneEncountersController < ApplicationController
       @drone_encounter.round_number += 1
 
       @drone_encounter.update(drone_encounter_params)
+
+      @drone_encounter.save
 
       render :new
     else

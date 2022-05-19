@@ -42,6 +42,18 @@ body {
   justify-content: center;
 }
 
+.status_win {
+  background-color: #5db374;
+}
+
+.status_lose {
+  background-color: #d64545;
+}
+
+.status_in_progress {
+  background-color: #45a1d6;
+}
+
 
 .m-0 {
   margin: 0;
@@ -63,14 +75,6 @@ div{
   bottom: 0;
   left: 0;
   width: 100%;
-}
-
-.win {
-  background-color: #45a1d6;
-}
-
-.lose {
-  background-color: #d64545;
 }
 
 h1 {

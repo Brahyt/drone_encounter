@@ -9,15 +9,11 @@
     <%= form_with model: @drone_encounter do |encounter_form| %>
       <%= encounter_form.hidden_field :drone_kills, 'data-dronecounter-target': 'droneCountField' %>
       <%= content_tag :div do %>
-        <%= content_tag :div do %>
-          <%= encounter_form.label :current_status, 'Game Status: ' %>
-          <%= encounter_form.select :current_status, %w[in_progress win lose] %>
-        <% end %>
         <%= encounter_form.label :current_status, 'Game Status: ' %>
         <%= encounter_form.select :current_status, %w[in_progress win lose] %>
       <% end %>
       <%= content_tag :div, class: 'counter-container m-0' do %>
-        <%= encounter_form.submit 'SUBMIT' %>
+        <%= encounter_form.submit 'NEXT ROUND' %>
       <% end %>
     <% end %>
   <% end %>
