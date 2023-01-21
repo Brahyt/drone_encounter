@@ -1,5 +1,5 @@
 
-<%= content_tag :div do %>
+<%= content_tag :div, class:'fixed top-0 left-0 w-full' do %>
   <%= turbo_frame_tag 'total_drones' do %>
     <%= render partial: 'drone_encounters/total_kills', locals: { total_kills: total_kills } %>
   <% end %>
@@ -7,7 +7,7 @@
 
 <%= turbo_frame_tag 'encounters', class: 'encounter-container' do %>
 
-  <%= content_tag :div, class: 'encounter-list' do %>
+  <%= content_tag :div, class: 'pt-8' do %>
     <% drone_encounters.each do |de| %>
       <%= render partial: 'drone_encounters/encounter', locals: { encounter: de } %>
     <% end %>

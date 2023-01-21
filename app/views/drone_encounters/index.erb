@@ -1,6 +1,6 @@
 <%= content_tag :div do %>
   <%= turbo_stream_from 'drone_encounters_tally' %>
-  <%= content_tag :div do %>
+  <%= content_tag :div, id: 'dronetally' do %>
     <%= render partial: 'dronetally', locals: {drone_encounters: @drone_encounters, total_kills: @total_drones_killed} %>
   <% end %>
 
