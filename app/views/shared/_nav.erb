@@ -1,4 +1,4 @@
-<%= content_tag :div, class: 'fixed bottom-0 left-0 w-full py-5 flex items-center' do %>
+<%= content_tag :div, class: 'fixed bottom-0 left-0 w-full py-5 flex items-center bg-amber-500' do %>
   <%= link_to "Record Drones Kills", new_drone_encounter_path, class: 'p-2 mx-auto' if session[:team_identifier] && @team&.players.present? %>
   <%= link_to "Create Team", new_team_path, class: 'p-2 mx-auto' unless session[:team_identifier] %>
   <%= link_to "Add Players", new_player_path, class: 'p-2 mx-auto' if (session[:team_identifier] && @team&.players.blank?) %>

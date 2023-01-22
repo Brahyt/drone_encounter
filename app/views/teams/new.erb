@@ -1,12 +1,11 @@
 <%= turbo_frame_tag 'drone_counter' do %>
   <%= form_with model: @team do |form| %>
-    <%= content_tag :div, class: 'fixed bottom-0 left-0 w-full py-5 flex items-center' do %>
-      <%= form.label :name, 'Team Name' %>
-      <%= form.text_field :name %>
+    <%= content_tag :div, class: 'fixed bottom-0 left-0 w-full py-5 flex items-center bg-amber-500' do %>
+      <%= content_tag :div, class: 'mx-auto' do %>
+        <%= form.text_field :name, placeholder: 'Create Team Name' %>
+        <%= form.submit 'Next', class: 'my-3 p-2 text-xl' %>
+      <% end %>
     <% end %>
 
-    <%= content_tag :div do %>
-      <%= form.submit %>
-    <% end %>
   <% end %>
 <% end %>

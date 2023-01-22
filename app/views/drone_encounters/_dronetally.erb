@@ -1,5 +1,5 @@
 
-<%= content_tag :div, class:'fixed top-0 left-0 w-full' do %>
+<%= content_tag :div, class:'fixed top-0 left-0 w-full bg-amber-500' do %>
   <%= turbo_frame_tag 'total_drones' do %>
     <%= render partial: 'drone_encounters/total_kills', locals: { total_kills: total_kills } %>
   <% end %>
