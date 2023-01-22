@@ -1,10 +1,12 @@
 <turbo-frame id='drone_counter' >
-  <%= content_tag :div, class: 'box' do %>
-    <%= content_tag :div, class: 'counter-container m-0' do %>
-      <%= content_tag :h2, "Current Kills", class: 'text-center m-0' %>
-      <%= content_tag :button, '▼', class: 'count-down m-0', data: {action: 'click->dronecounter#down_drone'} %>
-      <%= content_tag :h1, @drone_count, class: 'kill-counter m-0', 'data-dronecounter-target': 'droneCount' %>
-      <%= content_tag :button, '▲', class: 'count-up m-0', data: {action: 'click->dronecounter#up_drone'} %>
+  <%= content_tag :div, class: 'fixed bottom-0 left-0 w-full py-5 flex items-center'  do %>
+    <%= content_tag :div, class: 'mx-auto' do %>
+      <%= content_tag :h2, "Current Kills" %>
+      <%= content_tag :div, class: 'flex items-center' do %>
+        <%= content_tag :button, '▼', data: {action: 'click->dronecounter#down_drone'} %>
+        <%= content_tag :h1, @drone_count, class: 'kill-counter m-0', 'data-dronecounter-target': 'droneCount' %>
+        <%= content_tag :button, '▲', data: {action: 'click->dronecounter#up_drone'} %>
+      <% end %>
     <% end %>
     <%= form_with model: @drone_encounter do |encounter_form| %>
       <%= encounter_form.hidden_field :drone_kills, 'data-dronecounter-target': 'droneCountField' %>

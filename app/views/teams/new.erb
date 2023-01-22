@@ -1,6 +1,6 @@
 <%= turbo_frame_tag 'drone_counter' do %>
   <%= form_with model: @team do |form| %>
-    <%= content_tag :div do %>
+    <%= content_tag :div, class: 'fixed bottom-0 left-0 w-full py-5 flex items-center' do %>
       <%= form.label :name, 'Team Name' %>
       <%= form.text_field :name %>
     <% end %>
