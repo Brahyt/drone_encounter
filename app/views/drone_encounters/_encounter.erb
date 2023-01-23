@@ -1,11 +1,6 @@
-<%= content_tag :div, class: 'my-5 p-3' do %>
-  <%= content_tag :div, "Team Name: #{encounter.team.name}" %>
-  <%= content_tag :div, "Drones Killed: #{encounter.drone_kills}" %>
-  <%= content_tag :div, "Round Number: #{encounter.round_number}" %>
-  <%= content_tag :div, "#{encounter.team.players.count} Players" %>
-  <%= content_tag :div, class: 'players-box' do %>
-    <% encounter.team.players.each do |player| %>
-      <%= "#{player&.hero&.name} #{player&.aspect&.name}" %>
-    <% end %>
-  <% end %>
+<%= content_tag :tr, class: 'border-b' do %>
+  <%= content_tag :td, encounter.team.name, class: 'px-2 py-4 md:px-6 md:text-2xl' %>
+  <%= content_tag :td, encounter.drone_kills, class: 'px-2 py-4 md:px-6 md:text-2xl' %>
+  <%= content_tag :td, encounter.round_number, class: 'px-2 py-4 md:px-6 md:text-2xl' %>
+  <%= content_tag :td, encounter.team.players.count, class: 'px-2 py-4 md:px-6 md:text-2xl' %>
 <% end %>

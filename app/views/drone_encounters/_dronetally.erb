@@ -5,11 +5,23 @@
   <% end %>
 <% end %>
 
-<%= turbo_frame_tag 'encounters', class: 'encounter-container' do %>
+<%= turbo_frame_tag 'encounters', class: 'encounter-container min-w-full' do %>
 
-  <%= content_tag :div, class: 'pt-8' do %>
-    <% drone_encounters.each do |de| %>
-      <%= render partial: 'drone_encounters/encounter', locals: { encounter: de } %>
-    <% end %>
+  <%= content_tag :div, class: 'pt-8 min-w-full' do %>
+    <table class="min-w-full text-center">
+      <thead class='bg-amber-300' >
+        <tr>
+          <%= content_tag :th, 'Team Name', class: 'px-2 py-4 md:px-6 md:text-2xl' %>
+          <%= content_tag :th, 'Kills', class: 'px-2 py-4 md:px-6 md:text-2xl' %>
+          <%= content_tag :th, 'Round', class: 'px-2 py-4 md:px-6 md:text-2xl' %>
+          <%= content_tag :th, 'Players', class: 'px-2 py-4 md:px-6 md:text-2xl' %>
+        </tr>
+      </thead>
+      <tbody>
+        <% drone_encounters.each do |de| %>
+          <%= render partial: 'drone_encounters/encounter', locals: { encounter: de } %>
+        <% end %>
+      </tbody>
+    </table>
   <% end %>
 <% end %>
