@@ -1,17 +1,20 @@
 <%= turbo_frame_tag 'drone_counter' do %>
-  <%= form_with url: players_path, model: @team, method: :new do |form| %>
-    <%= form.fields_for :players do |player_form| %>
-      <%= content_tag :div do %>
-        <%= player_form.label :hero_id, 'Hero' %>
-        <%= player_form.select :hero_id, @heroes %>
+  <%= content_tag :div, class: 'fixed bottom-0 left-0 w-full flex flex-col bg-amber-500' do %>
+    <%= content_tag :h3, @team.name, class: 'mx-auto text-3xl my-3' %>
+    <%= form_with url: players_path, class: 'mx-auto', model: @team, method: :new do |form| %>
+      <%= form.fields_for :players do |player_form| %>
+        <%= content_tag :div, class: 'my-3' do %>
+          <%= content_tag :div, class: 'py-1' do %>
+            <%= player_form.select :hero_id, @heroes, prompt: 'Choose Hero', selected: nil %>
+          <% end %>
+          <%= content_tag :div, class: 'py-1' do %>
+            <%= player_form.select :aspect_id, @aspects, prompt: 'Choose Aspect', selected: nil %>
+          <% end %>
+        <% end %>
       <% end %>
-      <%= content_tag :div do %>
-        <%= player_form.label :aspect_id, 'aspect' %>
-        <%= player_form.select :aspect_id, @aspects %>
-      <% end %>
+        <%= content_tag :div, class: 'flex' do %>
+          <%= form.submit 'Lets GO!', class: 'mx-auto my-3 p-2 text-xl' %>
+        <% end %>
     <% end %>
-      <%= content_tag :div do %>
-        <%= form.submit %>
-      <% end %>
   <% end %>
 <% end %>

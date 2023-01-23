@@ -1,19 +1,23 @@
 <turbo-frame id='drone_counter' >
-  <%= content_tag :div, class: 'box' do %>
-    <%= content_tag :div, class: 'counter-container m-0' do %>
-      <%= content_tag :h2, "Current Kills", class: 'text-center m-0' %>
-      <%= content_tag :button, '▼', class: 'count-down m-0', data: {action: 'click->dronecounter#down_drone'} %>
-      <%= content_tag :h1, @drone_count, class: 'kill-counter m-0', 'data-dronecounter-target': 'droneCount' %>
-      <%= content_tag :button, '▲', class: 'count-up m-0', data: {action: 'click->dronecounter#up_drone'} %>
-    <% end %>
-    <%= form_with model: @drone_encounter do |encounter_form| %>
-      <%= encounter_form.hidden_field :drone_kills, 'data-dronecounter-target': 'droneCountField' %>
-      <%= content_tag :div do %>
-        <%= encounter_form.label :current_status, 'Current Game Status: ' %>
-        <%= encounter_form.select :current_status, %w[in_progress win lose] %>
+  <%= content_tag :div, class: 'fixed bottom-0 left-0 w-full py-5 flex items-center mx-auto bg-amber-500'  do %>
+    <%= content_tag :div, class: 'flex items-center flex-col mx-auto' do %>
+      <%= content_tag :h2, "Drone Kills", class: 'text-2xl' %>
+      <%= content_tag :div, class: 'flex items-center' do %>
+        <%= content_tag :button, '▼', class: 'text-5xl', data: {action: 'click->dronecounter#down_drone'} %>
+        <%= content_tag :h3, @drone_count, class: 'm-1 text-3xl', 'data-dronecounter-target': 'droneCount' %>
+        <%= content_tag :button, '▲', class: 'text-5xl', data: {action: 'click->dronecounter#up_drone'} %>
       <% end %>
-      <%= content_tag :div, class: 'counter-container m-0' do %>
-        <%= encounter_form.submit 'NEXT ROUND' %>
+    <% end %>
+    <%= content_tag :div, class: 'mx-auto' do %>
+      <%= form_with model: @drone_encounter do |encounter_form| %>
+        <%= encounter_form.hidden_field :drone_kills, 'data-dronecounter-target': 'droneCountField' %>
+        <%= content_tag :div do %>
+          <%= encounter_form.label :current_status, 'Current Game Status: ' %>
+          <%= encounter_form.select :current_status, [[ 'In Progress','in_progress'], ['Win!', 'win'], ['Lose' ,'lose']] %>
+        <% end %>
+        <%= content_tag :div, class: 'm-0' do %>
+          <%= encounter_form.submit 'NEXT ROUND' %>
+        <% end %>
       <% end %>
     <% end %>
   <% end %>

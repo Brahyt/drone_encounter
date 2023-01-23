@@ -1,11 +1,10 @@
-<%= content_tag :div, class: 'main' do %>
-
+<%= content_tag :div do %>
   <%= turbo_stream_from 'drone_encounters_tally' %>
   <%= content_tag :div, id: 'dronetally' do %>
     <%= render partial: 'dronetally', locals: {drone_encounters: @drone_encounters, total_kills: @total_drones_killed} %>
   <% end %>
 
-  <%= content_tag :div, class: 'fixed-bottom-bar box', data: {controller: 'dronecounter'} do %>
+  <%= content_tag :div, data: {controller: 'dronecounter'} do %>
     <%= turbo_frame_tag 'drone_counter' do %>
       <%= render partial: 'shared/nav' %>
     <% end %>
