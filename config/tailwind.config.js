@@ -9,12 +9,14 @@ module.exports = {
   ],
   theme: {
     backgroundImage: {
-      gunmetal: 'linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(43,57,98,1) 35%, rgba(17,17,18,1) 100%)',
-      redmetal: 'linear-gradient(0deg,#a20606,#751616 35%,#ff1313)'
+      gunmetal: 'linear-gradient(0deg,#020024,#142148 35%,#200304)',
+      redmetal: 'linear-gradient(0deg,#a20606,#751616 35%,#ff1313)',
+      crimsonmetal: 'linear-gradient(to right bottom, rgb(190, 24, 93), rgb(136, 19, 55), rgb(190, 18, 60))',
+      lightmetal: 'linear-gradient(0deg, rgba(92,92,98,1) 0%, rgba(110,116,134,1) 35%, rgba(94,94,99,1) 100%)'
     },
     extend: {
       fontFamily: {
-        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+        sans: ['Koulen', ...defaultTheme.fontFamily.sans],
       },
     },
   },
