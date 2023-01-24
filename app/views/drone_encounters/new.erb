@@ -1,22 +1,22 @@
 <turbo-frame id='drone_counter' >
-  <%= content_tag :div, class: 'fixed bottom-0 left-0 w-full py-5 flex items-center mx-auto bg-amber-500'  do %>
+  <%= content_tag :div, class: 'fixed bottom-0 left-0 w-full py-5 flex items-center mx-auto bg-gunmetal'  do %>
     <%= content_tag :div, class: 'flex items-center flex-col mx-auto' do %>
-      <%= content_tag :h2, "Drone Kills", class: 'text-2xl' %>
+      <%= content_tag :h2, "Drone Kills", class: 'text-2xl text-red-600' %>
       <%= content_tag :div, class: 'flex items-center' do %>
-        <%= content_tag :button, '▼', class: 'text-5xl', data: {action: 'click->dronecounter#down_drone'} %>
-        <%= content_tag :h3, @drone_count, class: 'm-1 text-3xl', 'data-dronecounter-target': 'droneCount' %>
-        <%= content_tag :button, '▲', class: 'text-5xl', data: {action: 'click->dronecounter#up_drone'} %>
+        <%= content_tag :button, '▼', class: 'text-5xl text-red-600', data: {action: 'click->dronecounter#down_drone'} %>
+        <%= content_tag :h3, @drone_count, class: 'm-1 text-3xl text-red-600', 'data-dronecounter-target': 'droneCount' %>
+        <%= content_tag :button, '▲', class: 'text-5xl text-red-600', data: {action: 'click->dronecounter#up_drone'} %>
       <% end %>
     <% end %>
     <%= content_tag :div, class: 'mx-auto' do %>
       <%= form_with model: @drone_encounter do |encounter_form| %>
         <%= encounter_form.hidden_field :drone_kills, 'data-dronecounter-target': 'droneCountField' %>
         <%= content_tag :div do %>
-          <%= encounter_form.label :current_status, 'Current Game Status: ' %>
+          <%= encounter_form.label :current_status, 'Current Game Status: ', class: 'text-red-600' %>
           <%= encounter_form.select :current_status, [[ 'In Progress','in_progress'], ['Win!', 'win'], ['Lose' ,'lose']] %>
         <% end %>
         <%= content_tag :div, class: 'm-0' do %>
-          <%= encounter_form.submit 'NEXT ROUND' %>
+          <%= encounter_form.submit 'NEXT ROUND', class: 'text-red-600'  %>
         <% end %>
       <% end %>
     <% end %>

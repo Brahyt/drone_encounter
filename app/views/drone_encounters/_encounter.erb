@@ -1,6 +1,6 @@
-<%= content_tag :tr, class: 'border-b' do %>
-  <%= content_tag :td, encounter.team.name, class: 'px-2 py-4 md:px-6 md:text-2xl' %>
-  <%= content_tag :td, encounter.drone_kills, class: 'px-2 py-4 md:px-6 md:text-2xl' %>
-  <%= content_tag :td, encounter.round_number, class: 'px-2 py-4 md:px-6 md:text-2xl' %>
-  <%= content_tag :td, encounter.team.players.count, class: 'px-2 py-4 md:px-6 md:text-2xl' %>
+<%= content_tag :tr, class: 'border-b border-blue-500 bg-slate-600' do %>
+  <%= content_tag :td, encounter.team.name, class: 'px-2 py-4 md:px-6 md:text-2xl text-blue-300' %>
+  <%= content_tag :td, encounter.drone_kills, class: 'px-2 py-4 md:px-6 md:text-2xl text-blue-300' %>
+  <%= content_tag :td, encounter.round_number, class: 'px-2 py-4 md:px-6 md:text-2xl text-blue-300' %>
+  <%= content_tag :td, encounter.team.players.count, class: 'px-2 py-4 md:px-6 md:text-2xl text-blue-300' %>
 <% end %>
