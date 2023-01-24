@@ -1,5 +1,5 @@
 
-<%= content_tag :div, class:'fixed top-0 left-0 w-full bg-amber-500' do %>
+<%= content_tag :div, class:'fixed top-0 left-0 w-full py-3 bg-gunmetal border-b border-red-600' do %>
   <%= turbo_frame_tag 'total_drones' do %>
     <%= render partial: 'drone_encounters/total_kills', locals: { total_kills: total_kills } %>
   <% end %>
@@ -7,9 +7,9 @@
 
 <%= turbo_frame_tag 'encounters', class: 'encounter-container min-w-full' do %>
 
-  <%= content_tag :div, class: 'pt-8 min-w-full' do %>
+  <%= content_tag :div, class: 'mt-8 pt-7 min-w-full' do %>
     <table class="min-w-full text-center">
-      <thead class='bg-amber-300' >
+      <thead class='bg-redmetal' >
         <tr>
           <%= content_tag :th, 'Team Name', class: 'px-2 py-4 md:px-6 md:text-2xl' %>
           <%= content_tag :th, 'Kills', class: 'px-2 py-4 md:px-6 md:text-2xl' %>
@@ -23,5 +23,6 @@
         <% end %>
       </tbody>
     </table>
+    <%= content_tag :div, '', class: 'h-40 bg-slate-700' %>
   <% end %>
 <% end %>
